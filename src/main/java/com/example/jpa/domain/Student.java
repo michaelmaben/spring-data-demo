@@ -8,7 +8,7 @@ import java.util.List;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String Id;
+    private Integer Id;
 
     @Column
     private boolean fullTime;
@@ -20,13 +20,19 @@ public class Student {
     public Student() {
     }
 
+    public Student(Person attendee, boolean fullTime, Integer age) {
+        this.fullTime = fullTime;
+        this.age = age;
+        this.attendee = attendee;
+    }
+
     @OneToMany(fetch = FetchType.EAGER)
     private List<Course> courses;
-    public String getId() {
+    public Integer getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         Id = id;
     }
 

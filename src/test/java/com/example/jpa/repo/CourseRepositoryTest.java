@@ -20,7 +20,5 @@ public class CourseRepositoryTest {
     @Test
     public void createCourse(){
         Department department = departmentRepository.save(new Department("Physics"));
-        courseRepository.save(new Course("Basic-Physics", department));
-        courseRepository.findAll().forEach(System.out::println);
     }
 }
