@@ -1,7 +1,10 @@
 package com.example.jpa.repo;
 
 
+import com.example.jpa.domain.Course;
 import com.example.jpa.domain.Department;
+import com.example.jpa.domain.Person;
+import com.example.jpa.domain.Staff;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,10 +17,12 @@ public class DepartmentRepositoryDemo {
     @Autowired
     private DepartmentRepository departmentRepository;
 
+    @Autowired
+    private CourseRepository courseRepository;
+
     @Test
     public void createDepartment(){
-        departmentRepository.save(new Department("Physics"));
-        departmentRepository.flush();
-        assertEquals(1, departmentRepository.findAll().stream().count());
+        assertEquals(3, departmentRepository.findAll().stream().count());
+        assertEquals("Humanities", departmentRepository.findByName("Humanities").getName());
     }
 }

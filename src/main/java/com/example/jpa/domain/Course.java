@@ -17,12 +17,10 @@ public class Course {
     @Column
     private String name;
 
-    @Column
     @OneToOne
     private Staff instructor;
 
     @ManyToOne
-    @JoinColumn
     private Department department;
 
     @ManyToMany(fetch = FetchType.EAGER)

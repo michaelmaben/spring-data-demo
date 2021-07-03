@@ -9,6 +9,9 @@ public class Staff {
     @GeneratedValue
     private Integer Id;
 
+    public Staff() {
+    }
+
     @Embedded
     private Person person;
 
